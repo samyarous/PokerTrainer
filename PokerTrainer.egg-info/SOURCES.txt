@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+PokerTrainer.egg-info/PKG-INFO
+PokerTrainer.egg-info/SOURCES.txt
+PokerTrainer.egg-info/dependency_links.txt
+PokerTrainer.egg-info/entry_points.txt
+PokerTrainer.egg-info/not-zip-safe
+PokerTrainer.egg-info/top_level.txt
+pokertrainer/__init__.py
