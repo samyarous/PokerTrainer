@@ -6,4 +6,10 @@ PokerTrainer.egg-info/dependency_links.txt
 PokerTrainer.egg-info/entry_points.txt
 PokerTrainer.egg-info/not-zip-safe
 PokerTrainer.egg-info/top_level.txt
-pokertrainer/__init__.py
+poker_trainer/__init__.py
+poker_trainer/cards.py
+poker_trainer/range/__init__.py
+poker_trainer/range/parser/__init__.py
+poker_trainer/range/parser/token.py
+poker_trainer/utils/__init__.py
+poker_trainer/utils/format.py
