@@ -4,6 +4,8 @@ import re
 from poker_trainer.range.parser.tokens import *
 
 class Parser:
+    ranks    = 'ABEFGIJKLMNOPQRTUV23456789*'
+    suits    = 'SHDCWXYZ'
     language = OrderedDict([
         (
             re.compile('(\d+)%(?:(-)(\d+)%)?(\w+)?', re.IGNORECASE),
@@ -38,7 +40,13 @@ class Parser:
             RangeOperator,
         ),
         (
-            re.compile('((?![SHDCWXYZ])[A-Z2-9*])?([SHDCWXYZ])?', re.IGNORECASE),
+            re.compile(
+                '(%s)?(%s)?' % (
+                    '[ABEFGIJKLMNOPQRTUV23456789]',
+                    '[SHDCWXYZ]',
+                ),
+                re.IGNORECASE
+            ),
             CardLiteral,
         ),
         (
@@ -80,7 +88,9 @@ class Parser:
             matched = False
             for reg, token_class in self.language.items():
                 m = reg.match(self.range_str, remaining_start)
-                if m:
+
+                if m and m.group(0): # do not match empty string
+                    print (reg.pattern, self.range_str, m.group(0))
                     remaining_start = m.end()
                     instance = token_class(
                         self,
